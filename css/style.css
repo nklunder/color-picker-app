@@ -16,7 +16,9 @@ input {
   background-image: linear-gradient(45deg, lightgray 25%, transparent 25%, transparent 75%, lightgray 75%, lightgray),
                     linear-gradient(45deg, lightgray 25%, transparent 25%, transparent 75%, lightgray 75%, lightgray);
   background-size:20px 20px;
-  background-position:0 0, 10px 10px
+  background-position:0 0, 10px 10px;
+  border-radius: 10rem;
+  overflow: hidden;
 }
 
 #color-square {
