@@ -12,27 +12,18 @@ var colors = {
   a: sliders.alpha.value
 };
 
+function updateValue() {
+  var val = this.name.charAt(0);
+  colors[val] = sliders[this.name].value;
+  computedColor = "hsla(" + colors.h + "," + colors.s + "%," + colors.l +"%," + colors.a + ")";
+  colorSquare.setAttribute("style", "background:" + computedColor);
+}
+
 var computedColor = "hsla(" + colors.h + "," + colors.s + "%," + colors.l +"%," + colors.a + ")";
 var colorSquare = document.getElementById('color-square');
-  colorSquare.setAttribute("style", "background:" + computedColor); 
+  colorSquare.setAttribute("style", "background:" + computedColor);
 
-sliders.hue.oninput = function () {
-  colors.h = sliders.hue.value;
-  computedColor = "hsla(" + colors.h + "," + colors.s + "%," + colors.l +"%," + colors.a + ")";
-  colorSquare.setAttribute("style", "background:" + computedColor);
-};
-sliders.saturation.oninput = function () {
-  colors.s = sliders.saturation.value;
-  computedColor = "hsla(" + colors.h + "," + colors.s + "%," + colors.l +"%," + colors.a + ")";
-  colorSquare.setAttribute("style", "background:" + computedColor);
-};
-sliders.lightness.oninput = function () {
-  colors.l = sliders.lightness.value;
-  computedColor = "hsla(" + colors.h + "," + colors.s + "%," + colors.l +"%," + colors.a + ")";
-  colorSquare.setAttribute("style", "background:" + computedColor);
-};
-sliders.alpha.oninput = function () {
-  colors.a = sliders.alpha.value;
-  computedColor = "hsla(" + colors.h + "," + colors.s + "%," + colors.l +"%," + colors.a + ")";
-  colorSquare.setAttribute("style", "background:" + computedColor);
-};
+sliders.hue.oninput = updateValue;
+sliders.saturation.oninput = updateValue;
+sliders.lightness.oninput = updateValue;
+sliders.alpha.oninput = updateValue;
