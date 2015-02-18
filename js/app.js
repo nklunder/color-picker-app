@@ -21,7 +21,7 @@ var numberVals = {
 
 var computedColor = "hsla(" + colors.h + "," + colors.s + "%," + colors.l +"%," + colors.a + ")";
 var colorSquare = document.getElementById('color-square');
-  colorSquare.setAttribute("style", "background:" + computedColor);
+
 
 function updateValue() {
   var val = this.name.charAt(0);
@@ -31,7 +31,18 @@ function updateValue() {
   colorSquare.setAttribute("style", "background:" + computedColor);
 }
 
+function init() {
+  colorSquare.setAttribute("style", "background:" + computedColor);
+
+  numberVals.h.textContent = colors.h;
+  numberVals.s.textContent = colors.s;
+  numberVals.l.textContent = colors.l;
+  numberVals.h.textContent = colors.h;
+}
+
 sliders.hue.oninput = updateValue;
 sliders.saturation.oninput = updateValue;
 sliders.lightness.oninput = updateValue;
 sliders.alpha.oninput = updateValue;
+
+init();
