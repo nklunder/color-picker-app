@@ -45,4 +45,17 @@ sliders.saturation.oninput = updateValue;
 sliders.lightness.oninput = updateValue;
 sliders.alpha.oninput = updateValue;
 
+sliders.hue.onchange = function () {
+  document.getElementById('css-vals').textContent = computedColor;
+};
+sliders.saturation.onchange = function () {
+  document.getElementById('css-vals').textContent = computedColor;
+};
+sliders.lightness.onchange = function () {
+  document.getElementById('css-vals').textContent = computedColor;
+};
+sliders.alpha.onchange = function () {
+  document.getElementById('css-vals').textContent = computedColor;
+};
+
 init();
