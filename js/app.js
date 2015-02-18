@@ -12,6 +12,13 @@ var colors = {
   a: sliders.alpha.value
 };
 
+var numberVals = {
+  h: document.getElementById('h-val'),
+  s: document.getElementById('s-val'),
+  l: document.getElementById('l-val'),
+  a: document.getElementById('a-val'),
+}
+
 var computedColor = "hsla(" + colors.h + "," + colors.s + "%," + colors.l +"%," + colors.a + ")";
 var colorSquare = document.getElementById('color-square');
   colorSquare.setAttribute("style", "background:" + computedColor);
@@ -19,6 +26,7 @@ var colorSquare = document.getElementById('color-square');
 function updateValue() {
   var val = this.name.charAt(0);
   colors[val] = sliders[this.name].value;
+  numberVals[val].textContent = colors[val];
   computedColor = "hsla(" + colors.h + "," + colors.s + "%," + colors.l +"%," + colors.a + ")";
   colorSquare.setAttribute("style", "background:" + computedColor);
 }

@@ -14,14 +14,28 @@
       <div id="color-square"></div>
     </div>
 
-    <label for="hue-slider">Hue</label>
-    <input type="range" name="hue" id="hue-slider" max="360">
-    <label for="saturation-slider">Saturation</label>
-    <input type="range" name="saturation" id="saturation-slider" max="100">
-    <label for="lightness-slider">Lightness</label>
-    <input type="range" name="lightness" id="lightness-slider" max="100">
-    <label for="alpha-slider">alpha</label>
-    <input type="range" name="alpha" id="alpha-slider" min="0" max="1" step="0.01" value="1">
+    <div id="sliders">
+      <p>
+        <label for="hue-slider">H</label>
+        <input type="range" name="hue" id="hue-slider" max="360">
+        <span class="num-value-box" id="h-val">1</span>
+      </p>
+      <p>
+        <label for="saturation-slider">S</label>
+        <input type="range" name="saturation" id="saturation-slider" max="100">
+        <span class="num-value-box" id="s-val">1</span>
+      </p>
+      <p>
+        <label for="lightness-slider">L</label>
+        <input type="range" name="lightness" id="lightness-slider" max="100">
+        <span class="num-value-box" id="l-val">1</span>
+      </p>
+      <p>
+        <label for="alpha-slider">a</label>
+        <input type="range" name="alpha" id="alpha-slider" min="0" max="1" step="0.01" value="1">
+        <span class="num-value-box" id="a-val">1</span>
+      </p>
+    </div>
   </div>
 
   <script src="js/app.js"></script>

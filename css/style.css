@@ -20,7 +20,7 @@ body {
 header {
   color: #FFFFFF;
   background-color: #03A9F4;
-  margin: 0 0 0.4rem 0;
+  margin: 0 0 0.8rem 0;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   padding: 0;
 }
@@ -29,12 +29,9 @@ h1 {
   margin: 0;
 }
 
-input {
-  display: block;
-}
-
 #color-card {
-  margin: 0 auto;
+  margin: 0 6rem;
+  padding-bottom: 0.2rem;
   width: 14rem;
   background-color: #FFFFFF;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -44,7 +41,7 @@ input {
   width: 14rem;
   height: 14rem;
   position: relative;
-  background-color: #eee;
+  background-color: #EEEEEE;
   background-image: linear-gradient(45deg, lightgray 25%, transparent 25%, transparent 75%, lightgray 75%, lightgray),
                     linear-gradient(45deg, lightgray 25%, transparent 25%, transparent 75%, lightgray 75%, lightgray);
   background-size: 1rem 1rem;
@@ -58,4 +55,17 @@ input {
   left: 0;
   width: 20rem;
   height: 20rem;
+}
+
+#sliders {
+  margin-left: 1rem;
+  color: #727272;
+}
+
+.num-value-box {
+  width: 2rem;
+  text-align: center;
+  margin-right: 1rem;
+  border-bottom: 1px solid #B6B6B6;
+  float: right;
 }
