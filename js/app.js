@@ -29,7 +29,7 @@ function updateValue() {
   numberVals[val].textContent = colors[val];
   rgba = hsl2rgb(colors.h, colors.s, colors.l);
   hsla = "hsla(" + colors.h + "," + colors.s + "%," + colors.l + "%," + colors.a + ")";
-  rgba = "rgba(" + colors.h + "," + colors.s + "," + colors.l + "," + colors.a + ")";
+  rgba = "rgba(" + colors.r + "," + colors.g + "," + colors.b + "," + colors.a + ")";
   colorSquare.setAttribute("style", "background:" + hsla);
 }
 
