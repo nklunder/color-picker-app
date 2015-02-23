@@ -5,6 +5,9 @@ var sliders = {
   alpha: document.getElementById('alpha-slider')
 };
 
+var colorChips = document.getElementById('css-vals');
+var addColorBtn = document.getElementById('add-color');
+
 var colors = {
   h: sliders.hue.value,
   s: sliders.saturation.value,
@@ -24,9 +27,10 @@ var numberVals = {
   s: document.getElementById('s-val'),
   l: document.getElementById('l-val'),
   a: document.getElementById('a-val'),
-}
+};
 
 var hsla = "hsla(" + colors.h + "," + colors.s + "%," + colors.l + "%," + colors.a + ")";
+var rgba = "rgba(" + colors.r + "," + colors.g + "," + colors.b + "," + colors.a + ")";
 var colorSquare = document.getElementById('color-square');
 
 
@@ -90,13 +94,23 @@ function rgb2hex(r, g, b) {
     return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
 }
 
+function addColor() {
+  var pre = document.createElement('pre');
+  pre.innerHTML = hsla + "<br>" + rgba + "<br>" + colors.hex;
+  colorChips.appendChild(pre);
+}
+
+
 function init() {
   colorSquare.setAttribute("style", "background:" + hsla);
 
   numberVals.h.textContent = colors.h;
   numberVals.s.textContent = colors.s;
   numberVals.l.textContent = colors.l;
-  numberVals.h.textContent = colors.h;
+  numberVals.a.textContent = colors.a;
+
+  hsl2rgb(colors.h, colors.s, colors.l);
+  colors.hex = rgb2hex(colors.r, colors.g, colors.b);
 }
 
 sliders.hue.oninput = updateValue;
@@ -104,17 +118,19 @@ sliders.saturation.oninput = updateValue;
 sliders.lightness.oninput = updateValue;
 sliders.alpha.oninput = updateValue;
 
-sliders.hue.onchange = function() {
-  document.getElementById('css-vals').textContent = hsla + rgba + colors.hex;
-};
-sliders.saturation.onchange = function() {
-  document.getElementById('css-vals').textContent = hsla + rgba + colors.hex;
-};
-sliders.lightness.onchange = function() {
-  document.getElementById('css-vals').textContent = hsla + rgba + colors.hex;
-};
-sliders.alpha.onchange = function() {
-  document.getElementById('css-vals').textContent = hsla + rgba + colors.hex;
-};
+addColorBtn.onclick = addColor;
+
+// sliders.hue.onchange = function() {
+//   document.getElementById('css-vals').textContent = hsla + rgba + colors.hex;
+// };
+// sliders.saturation.onchange = function() {
+//   document.getElementById('css-vals').textContent = hsla + rgba + colors.hex;
+// };
+// sliders.lightness.onchange = function() {
+//   document.getElementById('css-vals').textContent = hsla + rgba + colors.hex;
+// };
+// sliders.alpha.onchange = function() {
+//   document.getElementById('css-vals').textContent = hsla + rgba + colors.hex;
+// };
 
 init();
