@@ -9,7 +9,14 @@ var colors = {
   h: sliders.hue.value,
   s: sliders.saturation.value,
   l: sliders.lightness.value,
-  a: sliders.alpha.value
+
+  r: null,
+  g: null,
+  b: null,
+
+  a: sliders.alpha.value,
+
+  hex: null
 };
 
 var numberVals = {
@@ -27,7 +34,9 @@ function updateValue() {
   var val = this.name.charAt(0);
   colors[val] = sliders[this.name].value;
   numberVals[val].textContent = colors[val];
-  rgba = hsl2rgb(colors.h, colors.s, colors.l);
+  hsl2rgb(colors.h, colors.s, colors.l);
+  colors.hex = rgb2hex(colors.r, colors.g, colors.b);
+
   hsla = "hsla(" + colors.h + "," + colors.s + "%," + colors.l + "%," + colors.a + ")";
   rgba = "rgba(" + colors.r + "," + colors.g + "," + colors.b + "," + colors.a + ")";
   colorSquare.setAttribute("style", "background:" + hsla);
@@ -37,8 +46,8 @@ function hsl2rgb(h, s, l) {
   var m1, m2, hue,
       r, g, b;
 
-  s /= 100;
-  l /= 100;
+  s = s / 100;
+  l = l / 100;
   if (s === 0) {
     r = g = b = (l * 255);
   } else {
@@ -54,7 +63,6 @@ function hsl2rgb(h, s, l) {
     colors.b = Math.round(hue2rgb(m1, m2, hue - 1 / 3));
   }
 }
-
 function hue2rgb(m1, m2, hue) {
   var v;
   if (hue < 0)
@@ -74,6 +82,14 @@ function hue2rgb(m1, m2, hue) {
   return 255 * v;
 }
 
+function componentToHex(c) {
+    var hex = c.toString(16);
+    return hex.length == 1 ? "0" + hex : hex;
+}
+function rgb2hex(r, g, b) {
+    return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+}
+
 function init() {
   colorSquare.setAttribute("style", "background:" + hsla);
 
@@ -89,16 +105,16 @@ sliders.lightness.oninput = updateValue;
 sliders.alpha.oninput = updateValue;
 
 sliders.hue.onchange = function() {
-  document.getElementById('css-vals').textContent = hsla + rgba;
+  document.getElementById('css-vals').textContent = hsla + rgba + colors.hex;
 };
 sliders.saturation.onchange = function() {
-  document.getElementById('css-vals').textContent = hsla + rgba;
+  document.getElementById('css-vals').textContent = hsla + rgba + colors.hex;
 };
 sliders.lightness.onchange = function() {
-  document.getElementById('css-vals').textContent = hsla + rgba;
+  document.getElementById('css-vals').textContent = hsla + rgba + colors.hex;
 };
 sliders.alpha.onchange = function() {
-  document.getElementById('css-vals').textContent = hsla + rgba;
+  document.getElementById('css-vals').textContent = hsla + rgba + colors.hex;
 };
 
 init();
