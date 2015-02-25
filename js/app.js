@@ -5,7 +5,7 @@ var sliders = {
   alpha: document.getElementById('alpha-slider')
 };
 
-var colorChips = document.getElementById('css-vals');
+var selectedColors = document.getElementById('selected-colors');
 var addColorBtn = document.getElementById('add-color');
 
 var colors = {
@@ -97,7 +97,7 @@ function rgb2hex(r, g, b) {
 function addColor() {
   var pre = document.createElement('pre');
   pre.innerHTML = hsla + "<br>" + rgba + "<br>" + colors.hex;
-  colorChips.appendChild(pre);
+  selectedColors.appendChild(pre);
 }
 
 
