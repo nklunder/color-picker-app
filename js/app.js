@@ -110,6 +110,9 @@ function init() {
   numberVals.a.textContent = colors.a;
 
   hsl2rgb(colors.h, colors.s, colors.l);
+
+  rgba = "rgba(" + colors.r + "," + colors.g + "," + colors.b + "," + colors.a + ")";
+
   colors.hex = rgb2hex(colors.r, colors.g, colors.b);
 }
 
