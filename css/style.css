@@ -69,8 +69,12 @@ h1 {
   border-bottom: 0.0625rem solid #e0e0e0;
 }
 
+#sliders input {
+  width: 8rem;
+}
+
 .num-value-box {
-  width: 2rem;
+  width: 1.8rem;
   text-align: center;
   margin-right: 1rem;
   border-bottom: 0.0625rem solid #B6B6B6;
@@ -100,6 +104,7 @@ h1 {
   text-transform: uppercase;
   height: 2.25rem;
   min-width: 5.5rem;
+  transition: background-color 0.15s;
 }
 #add-color:hover {
   background-color: rgba(153, 153, 153, 0.2);
