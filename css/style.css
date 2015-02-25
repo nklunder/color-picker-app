@@ -8,6 +8,15 @@
 .secondary-text-color  { color: #727272; }
 .divider-color         { border-color: #B6B6B6; }
 
+.clear:before,
+.clear:after {
+    content: " ";
+    display: table;
+}
+
+.clear:after {
+    clear: both;
+}
 
 body {
   color: #212121;
@@ -83,11 +92,29 @@ h1 {
 
 #selected-colors {
   float: left;
-  font-size: 1.4rem;
-  color: #FFFFFF;
-  padding-left: 4.5rem;
-  background: gray;
+  color: #727272;
+  background: #FFFFFF;
+  border-radius: 0.125rem;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.color-container:nth-last-child(n+2) {
+  border-bottom: 0.0625rem solid #e0e0e0;
+  overflow: hidden;
+}
+
+.color-chip {
+  width: 2rem;
+  height: 2rem;
+  float: left;
+}
+
+.css-text {
+  margin: 0;
+  line-height: 1.5;
+  padding: 0.4rem 1rem 0.4rem 1.4rem;
+  float: right;
+  font-size: 0.8rem;
 }
 
 #add-color {

@@ -95,9 +95,18 @@ function rgb2hex(r, g, b) {
 }
 
 function addColor() {
-  var pre = document.createElement('pre');
-  pre.innerHTML = hsla + "<br>" + rgba + "<br>" + colors.hex;
-  selectedColors.appendChild(pre);
+  var container = document.createElement('div');
+  container.className = "color-container clear";
+  var colorSquare = document.createElement('div');
+  var cssVals = document.createElement('pre')
+  colorSquare.className = "color-chip"
+  colorSquare.style.backgroundColor = colors.hex;
+  cssVals.innerHTML = hsla + "<br>" + rgba + "<br>" + colors.hex;
+  cssVals.className = "css-text";
+  container.appendChild(colorSquare);
+  container.appendChild(cssVals);
+
+  selectedColors.appendChild(container);
 }
 
 
@@ -122,18 +131,5 @@ sliders.lightness.oninput = updateValue;
 sliders.alpha.oninput = updateValue;
 
 addColorBtn.onclick = addColor;
-
-// sliders.hue.onchange = function() {
-//   document.getElementById('css-vals').textContent = hsla + rgba + colors.hex;
-// };
-// sliders.saturation.onchange = function() {
-//   document.getElementById('css-vals').textContent = hsla + rgba + colors.hex;
-// };
-// sliders.lightness.onchange = function() {
-//   document.getElementById('css-vals').textContent = hsla + rgba + colors.hex;
-// };
-// sliders.alpha.onchange = function() {
-//   document.getElementById('css-vals').textContent = hsla + rgba + colors.hex;
-// };
 
 init();
